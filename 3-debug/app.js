@@ -1,5 +1,6 @@
 function sayHello(){
     console.log('Hello!😁');
+    console.log('kkardd!');
 }
 
 function calculator(x, y){
