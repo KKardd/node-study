@@ -4,6 +4,14 @@ import {body, check, param, validationResult} from "express-validator";
 const app = express();
 app.use(express.json());
 
+const validate = (req, res, next) => {
+    const errors = validationResult(req);
+    if (errors.isEmpty()) {
+        return next();
+    }
+    res.status(400).json({message: errors.array()[0].msg});
+};
+
 app.post(
     "/users",
     [
@@ -13,12 +21,9 @@ app.post(
         body("job.name")
             .notEmpty()
             .withMessage("직업이 없니? 학생이면 학생이라고 알려줘."),
+        validate,
     ],
     (req, res, next) => {
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            return res.status(400).json({message: errors.array()});
-        }
         console.log(req.body);
         res.status(201).send("Success!");
     }
@@ -26,12 +31,8 @@ app.post(
 
 app.get(
     "/:email",
-    param("email").isEmail().withMessage("이메일을 다시 확인해줘."),
+    [param("email").isEmail().withMessage("이메일을 다시 확인해줘."), validate],
     (req, res, next) => {
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            return res.status(400).json({message: errors.array()});
-        }
         res.send("Success!");
     }
 );
