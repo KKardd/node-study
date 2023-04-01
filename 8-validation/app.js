@@ -15,9 +15,13 @@ const validate = (req, res, next) => {
 app.post(
     "/users",
     [
-        body("name").isLength({min: 2}).withMessage("이름은 두글자 이상!"),
+        body("name")
+            .trim()
+            .isLength({min: 2})
+            .withMessage("이름은 두글자 이상!"),
         body("age").isInt().withMessage("숫자를 입력해줘!"),
-        body("email").isEmail().withMessage("이메일 입력해줘!"),
+        body("email").toLowerCase().isEmail().withMessage("이메일 입력해줘!"),
+        // .normalizeEmail(),
         body("job.name")
             .notEmpty()
             .withMessage("직업이 없니? 학생이면 학생이라고 알려줘."),
@@ -31,7 +35,13 @@ app.post(
 
 app.get(
     "/:email",
-    [param("email").isEmail().withMessage("이메일을 다시 확인해줘."), validate],
+    [
+        param("email")
+            .isEmail()
+            .withMessage("이메일을 다시 확인해줘.")
+            .normalizeEmail(),
+        validate,
+    ],
     (req, res, next) => {
         res.send("Success!");
     }
