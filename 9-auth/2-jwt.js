@@ -9,7 +9,7 @@ const token = jwt.sign(
     secret,
     {expiresIn: 2} // token 유효 기간 설정(초)
 );
-
+console.log(token);
 jwt.verify(token, secret, (error, decoded) => {
     console.log(error, decoded);
 }); //token의 유효기간안에서 확인했기때문에 error값에 null, decoded값에 제대로 출력되는 것을 볼 수 있다.
