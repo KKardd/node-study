@@ -15,6 +15,18 @@ app.use(cors(corsOption));
 app.use(helmet());
 app.use(morgan("tiny"));
 
+app.get("/", (req, res, next) => {
+    res.status(200).json("get Method");
+});
+
+app.get("/test", (req, res, next) => {
+    res.status(200).json("test get Method");
+});
+
+app.post("/post", (req, res, next) => {
+    const {name} = req.body;
+    res.status(201).json(name);
+});
 app.use((req, res, next) => {
     console.log("Finish Not Fount");
     res.sendStatus(404);
