@@ -16,10 +16,6 @@ app.use(helmet());
 app.use(morgan("tiny"));
 
 app.use((req, res, next) => {
-    res.sendStatus(200);
-});
-
-app.use((req, res, next) => {
     console.log("Finish Not Fount");
     res.sendStatus(404);
 });
@@ -30,3 +26,4 @@ app.use((error, req, res, next) => {
 });
 
 app.listen(8080);
+console.log("Connect!");
