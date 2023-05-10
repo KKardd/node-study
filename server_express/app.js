@@ -3,6 +3,7 @@ import "express-async-errors";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
+import boardRouter from "./router/board_Router.js";
 const app = express();
 
 const corsOption = {
@@ -14,6 +15,8 @@ app.use(express.json());
 app.use(cors(corsOption));
 app.use(helmet());
 app.use(morgan("tiny"));
+
+app.use("/board", boardRouter);
 
 app.get("/", (req, res, next) => {
     res.status(200).json("get Method");
