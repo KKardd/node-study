@@ -16,10 +16,5 @@ let posting = [
 ];
 
 export async function getAll() {
-    return Promise.all(
-        tweets.map(async (tweet) => {
-            const {username, name, url} = await userRepository.findById(tweet.userId);
-            return {...tweet, username, name, url};
-        })
-    );
+    return posting;
 }
