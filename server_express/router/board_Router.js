@@ -9,7 +9,7 @@ router.get("/board", boardController.getPostings);
 
 // GET /board/:id
 // router.get("/:id", isAuth, boardController.getTweet);
-router.get("/board/:id", boardController.getPostings);
+router.get("/board/:id", boardController.getPosting);
 
 // POST /board
 // router.post("/", isAuth, validateTweet, boardController.createTweet);
