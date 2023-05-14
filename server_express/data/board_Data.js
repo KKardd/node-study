@@ -30,3 +30,8 @@ export async function getById(id) {
     const posts = posting.find((post) => post.id === id);
     return posts;
 }
+
+export async function create(text, username, userId) {
+    const posts = posting.find((post) => post.id === id);
+    return posts;
+}
