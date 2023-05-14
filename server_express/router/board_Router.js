@@ -5,7 +5,7 @@ const router = express.Router();
 
 // GET /board
 // GET /board?username=:username
-router.get("/", boardController.getPostings);
+router.get("/board", boardController.getPostings);
 
 // GET /board/:id
 // router.get("/:id", isAuth, boardController.getTweet);
