@@ -6,7 +6,16 @@ export async function getPostings(req, res) {
     res.status(200).json(data);
 }
 
-export async function newPostings(req, res) {
-    const username = req.query.username;
-    res.status(200).json(username);
+export async function getPosting(req, res) {
+    const id = req.params.id;
+    const data = boardRepository.getById(id);
+    if (!data) {
+        res.status(404).json(id);
+    }
+    res.status(200).json(data);
 }
+
+// export async function newPostings(req, res) {
+//     const username = req.query.username;
+//     res.status(200).json(username);
+// }
