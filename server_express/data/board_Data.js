@@ -27,6 +27,6 @@ export async function getAllByUsername(username) {
 }
 
 export async function getById(id) {
-    const arr = posting.find((post) => post.id === id);
-    return posting;
+    const posts = posting.find((post) => post.id === id);
+    return posts;
 }
