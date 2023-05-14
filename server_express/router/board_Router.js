@@ -9,11 +9,11 @@ router.get("/board", boardController.getPostings);
 
 // GET /board/:id
 // router.get("/:id", isAuth, boardController.getTweet);
-router.get("/:id", boardController.getPostings);
+router.get("/board/:id", boardController.getPostings);
 
 // POST /board
 // router.post("/", isAuth, validateTweet, boardController.createTweet);
-router.post("/post", boardController.newPostings);
+router.post("/board/post", boardController.newPostings);
 
 // PUT /board/:id
 // router.put("/:id", isAuth, validateTweet, boardController.updateTweet);
