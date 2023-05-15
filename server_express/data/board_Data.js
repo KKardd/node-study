@@ -31,7 +31,13 @@ export async function getById(id) {
     return posts;
 }
 
-export async function create(text, username, userId) {
-    const posts = posting.find((post) => post.id === id);
-    return posts;
+export async function create(title, text, username, userId) {
+    const newPosts = {
+        title,
+        text,
+        username,
+        userId,
+    };
+    posting.push(newPosts);
+    return newPosts;
 }
