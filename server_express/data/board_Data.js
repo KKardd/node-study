@@ -1,5 +1,3 @@
-import * as userRepository from "./auth.js";
-
 let posting = [
     {
         id: "1",
