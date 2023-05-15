@@ -5,15 +5,15 @@ const router = express.Router();
 
 // GET /board
 // GET /board?username=:username
-router.get("/board", boardController.getPostings);
+router.get("/", boardController.getPostings);
 
 // GET /board/:id
 // router.get("/:id", isAuth, boardController.getTweet);
-router.get("/board/:id", boardController.getPosting);
+router.get("/:id", boardController.getPosting);
 
 // POST /board
 // router.post("/", isAuth, validateTweet, boardController.createTweet);
-router.post("/board/post", boardController.newPostings);
+router.post("/post", boardController.newPostings);
 
 // PUT /board/:id
 // router.put("/:id", isAuth, validateTweet, boardController.updateTweet);
