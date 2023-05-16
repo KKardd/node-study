@@ -1,17 +1,17 @@
 let posting = [
     {
-        id: "1",
-        text: "게시판 test",
+        id: 1,
+        content: "게시판 test",
         username: "test1",
-        createdAt: new Date().toString(),
         userId: "1",
+        createdAt: new Date().toString(),
     },
     {
-        id: "2",
-        text: "안뇽!",
+        id: 2,
+        content: "안뇽!",
         username: "test2",
-        createdAt: new Date().toString(),
         userId: "1",
+        createdAt: new Date().toString(),
     },
 ];
 
@@ -29,12 +29,14 @@ export async function getById(id) {
     return posts;
 }
 
-export async function create(title, text, username, userId) {
+export async function create(title, content, username, userId) {
     const newPosts = {
+        id: posting.length + 1,
         title,
-        text,
+        content,
         username,
         userId,
+        createdAt: new Date().toString(),
     };
     posting.push(newPosts);
     return newPosts;
