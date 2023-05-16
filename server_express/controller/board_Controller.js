@@ -17,7 +17,7 @@ export async function getPosting(req, res) {
 }
 
 export async function newPostings(req, res) {
-    const {title, text, username, userId} = req.body;
-    const newposts = await boardRepository.create(title, text, username, userId);
+    const {title, content, username, userId} = req.body;
+    const newposts = await boardRepository.create(title, content, username, userId);
     res.status(200).json(newposts);
 }
