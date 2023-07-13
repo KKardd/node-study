@@ -16,7 +16,7 @@ const options = {
     res.set('x-timestamp', Date.now());
   },
 };
-app.use(express.static('public', options));
+app.use(express.static('public', options)); // public 폴더를 쉽게 받아올 수 있음 야미야미
 
 app.use('/posts', postRouter);
 app.use('/users', userRouter);
